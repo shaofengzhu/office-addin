@@ -20,6 +20,21 @@
 	<VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
 		<Hosts>
 			<Host xsi:type="Workbook">
+            	<AllFormFactors>
+					<ExtensionPoint xsi:type="CustomFunctions">
+						<Script>
+							<SourceLocation resid="OEP.UDF.Js" />
+						</Script>
+						<Page>
+							<SourceLocation resid="OEP.UDF.Html"/>
+						</Page>
+						<Metadata>
+							<SourceLocation resid="OEP.UDF.Json" />
+						</Metadata>
+						<Namespace resid="OEP.UDF.Namespace" />
+					</ExtensionPoint>
+				</AllFormFactors>
+
 				<DesktopFormFactor>
 				  	<!-- PrimaryCommandSurface is the main Office Ribbon. -->
 				  	<ExtensionPoint xsi:type="PrimaryCommandSurface">
@@ -74,8 +89,12 @@
 			</bt:Images>
 			<bt:Urls>
 				<bt:Url id="OEP.Taskpane.Url" DefaultValue="http://localhost:8080/taskpane.html" />
+				<bt:Url id="OEP.UDF.Json" DefaultValue="http://localhost:8080/functions.json" />
+				<bt:Url id="OEP.UDF.Js" DefaultValue="http://localhost:8080/functions.js" />
+				<bt:Url id="OEP.UDF.Html" DefaultValue="http://localhost:8080/functions.html" />
 			</bt:Urls>
 			<bt:ShortStrings>
+				<bt:String id="OEP.UDF.Namespace" DefaultValue="CONTOSO" />            
 				<bt:String id="OEP.TaskpaneButton.Label" DefaultValue="Hello" />
 				<bt:String id="OEP.Group1Label" DefaultValue="Hello" />
 				<bt:String id="OEP.GetStarted.Title" DefaultValue="Hello" />
