@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+ xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides"
+ xsi:type="TaskPaneApp">
+	<Id>3c3423a2-173a-46e3-a6aa-af8b63a4eba5</Id>
+	<Version>1.0.0.0</Version>
+	<ProviderName>Microsoft Office Platform Team</ProviderName>
+	<DefaultLocale>en-US</DefaultLocale>
+	<DisplayName DefaultValue="Hello World" />
+	<Description DefaultValue="Hello World" />
+	<Hosts>
+		<Host Name="Workbook" />
+	</Hosts>
+	<DefaultSettings>
+		<SourceLocation DefaultValue="http://localhost:8080/taskpane.html"/>
+	</DefaultSettings>
+	<Permissions>ReadWriteDocument</Permissions>
+	<VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
+		<Hosts>
+			<Host xsi:type="Workbook">
+				<DesktopFormFactor>
+				  	<!-- PrimaryCommandSurface is the main Office Ribbon. -->
+				  	<ExtensionPoint xsi:type="PrimaryCommandSurface">
+						<!-- Use OfficeTab to extend an existing Tab. Use CustomTab to create a new tab. -->
+						<CustomTab id="OEP.TabHello">
+							<!-- Ensure you provide a unique id for the group. Recommendation for any IDs is to namespace using your company name. -->
+							<Group id="OEP.Group1">
+								<!-- Label for your group. resid must point to a ShortString resource. -->
+								<Label resid="OEP.Group1Label" />
+								<!-- Icons. Required sizes 16,32,80, optional 20, 24, 40, 48, 64. Strongly recommended to provide all sizes for great UX. -->
+								<!-- Use PNG icons. All URLs on the resources section must use HTTPS. -->
+								<Icon>
+									<bt:Image size="16" resid="OEP.tpicon_16x16" />
+									<bt:Image size="32" resid="OEP.tpicon_32x32" />
+									<bt:Image size="80" resid="OEP.tpicon_80x80" />
+								</Icon>
+
+								<!-- Control. It can be of type "Button" or "Menu". -->
+								<Control xsi:type="Button" id="OEP.TaskpaneButton">
+									<Label resid="OEP.TaskpaneButton.Label" />
+									<Supertip>
+										<!-- ToolTip title. resid must point to a ShortString resource. -->
+										<Title resid="OEP.TaskpaneButton.Label" />
+										<!-- ToolTip description. resid must point to a LongString resource. -->
+										<Description resid="OEP.TaskpaneButton.Tooltip" />
+									</Supertip>
+									<Icon>
+										<bt:Image size="16" resid="OEP.tpicon_16x16" />
+										<bt:Image size="32" resid="OEP.tpicon_32x32" />
+										<bt:Image size="80" resid="OEP.tpicon_80x80" />
+									</Icon>
+
+									<!-- This is what happens when the command is triggered (E.g. click on the Ribbon). Supported actions are ExecuteFunction or ShowTaskpane. -->
+									<Action xsi:type="ShowTaskpane">
+										<TaskpaneId>MainTaskpane</TaskpaneId>
+										<!-- Provide a url resource id for the location that will be displayed on the task pane. -->
+										<SourceLocation resid="OEP.Taskpane.Url" />
+									</Action>
+								</Control>
+							</Group>
+							<Label resid="OEP.HelloTab.Label" />
+						</CustomTab>
+				  	</ExtensionPoint>
+				</DesktopFormFactor>
+			</Host>
+		</Hosts>
+		<Resources>
+			<bt:Images>
+				<bt:Image id="OEP.tpicon_16x16" DefaultValue="http://localhost:8080/images/Button16x16.png" />
+				<bt:Image id="OEP.tpicon_32x32" DefaultValue="http://localhost:8080/images/Button32x32.png" />
+				<bt:Image id="OEP.tpicon_80x80" DefaultValue="http://localhost:8080/images/Button80x80.png" />
+			</bt:Images>
+			<bt:Urls>
+				<bt:Url id="OEP.Taskpane.Url" DefaultValue="http://localhost:8080/taskpane.html" />
+			</bt:Urls>
+			<bt:ShortStrings>
+				<bt:String id="OEP.TaskpaneButton.Label" DefaultValue="Hello" />
+				<bt:String id="OEP.Group1Label" DefaultValue="Hello" />
+				<bt:String id="OEP.GetStarted.Title" DefaultValue="Hello" />
+	  			<bt:String id="OEP.HelloTab.Label" DefaultValue="Hello" />
+			</bt:ShortStrings>
+			<bt:LongStrings>
+				<bt:String id="OEP.TaskpaneButton.Tooltip" DefaultValue="Click to show Hello Editor" />
+			</bt:LongStrings>
+		</Resources>
+	</VersionOverrides>
+</OfficeApp>

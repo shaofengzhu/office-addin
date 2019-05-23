@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <script src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js"></script>
+        <script>
+            Office.onReady(function(){
+
+            });
+
+            function updateRange() {
+                Excel.run(function (context) {
+                    let sheet = context.workbook.worksheets.getItem('Sheet1');
+                    let range = sheet.getRange('A1:B2');
+                    range.values = [['Hello', 'World'], [100, 200]];
+                    return context.sync();
+                });
+            }
+        </script>
+    </head>
+    <body>
+        Hello World
+        <input type="button" value="Update Range" onclick="updateRange()" />
+    </body>
+</html>
