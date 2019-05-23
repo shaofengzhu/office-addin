@@ -1,15 +1,14 @@
 # Hello World Office Addin
 
 ## Introduction
-There here are some tempaltes for office-addin, such as VS tempalte or YO Office, and those template or tool make it easy to create an office-addin. But those tool and template generate too many files and a developer may get lost. In this tutorial, we would like to build a very simple Office-Addin using simple code editor. You could Visual Studio Code as code editor.
+There are some templates for office-addin, such as VS tempalte or YO Office, and those template or tool make it easy to create an office-addin. But those tool and template generate too many files and a developer may get lost. In this tutorial, we would like to build a very simple Office-Addin using simple code editor. You could Visual Studio Code as code editor. The goal of this tutorial is to show that an office addin actually only need two files:
 
-An office addin actually only need two files
-1. An HTML page. Let's name it as taskpane.html
-2. A manifest XML. Let's name it as manifest.xml
+1. An HTML page. It contains UI and logic. Let's name it as taskpane.html
+2. A manifest XML. It tells Office app how to display some ribbon button and launch the HTML page. Let's name it as manifest.xml
 
 When you walk though this tutorial, you will notice that the most difficult part is the manifest.xml.
 
-### Create a folder
+## Create a folder and two files.
 ```console
 mkdir hello-world
 ```
@@ -149,11 +148,13 @@ cd hello-world
 http-server
 ```
 
+Now, you could open web browser and navigate to http://localhost:8080/taskpane.html page to make sure your page works.
+
 ### Test your addin
 Now, we could launch the Excel, create an empty workbook. Then click the ribbon "Insert" -> "Addins" -> "My Addins", you will see your addin "Hello World" there. Click on it, you will see a taskpane opened.
 
 ### Start to invoke an API.
-Let's add a button in the html page. When the button is clicked, we will write to the Excel range.
+Let's add a button in the html page. When the button is clicked, we will write some data to the Excel range.
 
 ```html
 <html>
