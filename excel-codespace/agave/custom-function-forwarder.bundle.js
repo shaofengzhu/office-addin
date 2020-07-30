@@ -26744,7 +26744,7 @@ var WebServiceCustomFunctionInvoker = /** @class */ (function () {
                 context.setError(CustomFunctions.ErrorCode.unknown);
             }
             else {
-                if (typeof (invokeResult.result) === "object") {
+                if (!Array.isArray(invokeResult.result) && typeof (invokeResult.result) === "object") {
                     if (invokeResult.result.mimeType === "image/png") {
                         context.setResult("#IMAGE");
                         var address_1 = context.address;
